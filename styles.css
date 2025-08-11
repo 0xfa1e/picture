@@ -120,6 +120,66 @@ header p {
     display: block;
 }
 
+/* 裁剪相关 */
+.image-container {
+    position: relative;
+}
+
+.crop-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 10;
+}
+
+.crop-rect {
+    position: absolute;
+    border: 2px dashed var(--primary-color);
+    background: transparent;
+    pointer-events: auto;
+    cursor: move;
+    z-index: 11;
+}
+
+.crop-handle {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background: #fff;
+    border: 2px solid var(--primary-color);
+    border-radius: 50%;
+    box-shadow: var(--shadow);
+}
+
+.crop-handle.handle-nw { left: -6px; top: -6px; cursor: nwse-resize; }
+.crop-handle.handle-ne { right: -6px; top: -6px; cursor: nesw-resize; }
+.crop-handle.handle-se { right: -6px; bottom: -6px; cursor: nwse-resize; }
+.crop-handle.handle-sw { left: -6px; bottom: -6px; cursor: nesw-resize; }
+.crop-handle.handle-n  { left: 50%; top: -6px; transform: translateX(-50%); cursor: n-resize; }
+.crop-handle.handle-s  { left: 50%; bottom: -6px; transform: translateX(-50%); cursor: s-resize; }
+.crop-handle.handle-e  { right: -6px; top: 50%; transform: translateY(-50%); cursor: e-resize; }
+.crop-handle.handle-w  { left: -6px; top: 50%; transform: translateY(-50%); cursor: w-resize; }
+
+.secondary-btn {
+    background: #E9EEF6;
+    color: #093A7A;
+    border: none;
+    padding: 0.6rem 1.2rem;
+    border-radius: 18px;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.secondary-btn:hover {
+    filter: brightness(0.95);
+}
+
+.crop-controls {
+    display: flex;
+    gap: 0.75rem;
+    align-items: center;
+}
+
 .controls {
     display: flex;
     flex-direction: column;
